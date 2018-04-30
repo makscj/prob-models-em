@@ -20,12 +20,6 @@ def em(data, classes, epoch):
 
     return gamma
 
-
-
-
-     
-
-
 def e_step(data, classes, mu, sigma2, psi):
     gamma = np.zeros((len(data), classes))
 
@@ -74,7 +68,6 @@ def generateData(dimension, amount, classes):
     
     return np.array(data),labels
 
-
 classes = 5
 
 data,labels = generateData(dimension=2,amount=100,classes=classes)
@@ -82,6 +75,8 @@ data,labels = generateData(dimension=2,amount=100,classes=classes)
 probs = em(data, classes=classes, epoch=50)
 
 prediction = np.array([np.argmax(probs[i]) for i in range(probs.shape[0])])
+print(prediction)
+print(labels)
 
 
 colors = cm.rainbow(np.linspace(0, 1, classes))
@@ -95,6 +90,6 @@ plt.show()
 
 
 
-# plt.scatter([k[0] for k in data],[k[1] for k in data])
-# plt.show()
+plt.scatter([k[0] for k in data],[k[1] for k in data])
+plt.show()
 
